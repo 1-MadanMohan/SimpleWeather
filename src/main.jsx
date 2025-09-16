@@ -5,6 +5,6 @@ import WeatherDashboard from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-  <WeatherDashboard />
+  <App />
   </StrictMode>,
 )
