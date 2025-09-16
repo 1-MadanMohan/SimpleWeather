@@ -15,69 +15,74 @@ const Navbar = ({ onSearch }) => {
     }
   };
 
-  return (
-    <nav
-      style={{
-        justifyContent: "space-between",
-        display: "flex",
-        alignItems: "center",
-        marginTop: "10px",
-        padding: "10px",
-        paddingLeft: '30px',
-        paddingRight: '30px'
+  return (<nav
+  style={{
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    alignItems: "center",
+    gap: "10px",
+    padding: "10px 20px",
+  }}
+>
+  {/* Logo */}
+  <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+    <FilterDramaTwoToneIcon fontSize="large" />
+    <p style={{ fontWeight: "bold", fontSize: "20px", margin: 0 }}>Weather</p>
+  </div>
+
+  {/* Search Bar */}
+  <div
+    style={{
+      display: "flex",
+      flex: 1,
+      minWidth: "200px",
+      gap: "8px",
+      alignItems: "center",
+    }}
+  >
+    <TextField
+      variant="outlined"
+      placeholder="Search City"
+      size="small"
+      value={searchCity}
+      onChange={(e) => setSearchCity(e.target.value)}
+      style={{ flex: 1, borderRadius: "2rem", backgroundColor: "white" }}
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+            <SearchIcon />
+          </InputAdornment>
+        ),
       }}
+    />
+    <Button
+      variant="contained"
+      onClick={handleSearchClick}
+      style={{ borderRadius: "6px", backgroundColor: "#4B5550" }}
     >
-      <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-        <FilterDramaTwoToneIcon />
-        <p style={{ fontWeight: "bold", fontSize: "20px" }}>Weather</p>
-      </div>
-      <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-        <TextField
-          variant="outlined"
-          placeholder="Search Any City"
-          size="small"
-          value={searchCity}
-          onChange={(e) => setSearchCity(e.target.value)}
-          style={{
-            backgroundColor: "white",
-            borderRadius: "2rem",
-            width: "22rem",
-          }}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
-        />
-        <Button
-          variant="contained"
-          onClick={handleSearchClick}
-          style={{ borderRadius: "6px" ,backgroundColor: '#4B5550'}}
-        >
-          Search
-        </Button>
-      </div>
-      <div style={{ marginTop: "1rem",
-                  fontSize: "16px",
-                  fontWeight: "700",
-                  backgroundColor: '#4B5550',
-                  height: "35px",
-                  width: "150px",
-                  color:'white',
-                  gap:'2px',
-                  borderRadius: "6px",
-                  alignItems: "center",
-                  display: "flex",
-                  justifyContent: "center",}}>
-        <GpsFixedIcon />
-        <p style={{
-                  fontSize:
-                  '14px'
-                }}>Current Location</p>
-      </div>
-    </nav>
+      Search
+    </Button>
+  </div>
+
+  {/* Current Location */}
+  <div
+    style={{
+      display: "flex",
+      alignItems: "center",
+      gap: "4px",
+      fontSize: "14px",
+      fontWeight: "700",
+      color: "white",
+      backgroundColor: "#4B5550",
+      padding: "6px 10px",
+      borderRadius: "6px",
+    }}
+  >
+    <GpsFixedIcon fontSize="small" /> Current Location
+  </div>
+</nav>
+
   );
 };
 

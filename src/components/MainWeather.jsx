@@ -106,73 +106,68 @@ const MainWeather = ({ weatherData }) => {
 
   return (
     <div
-      style={{
-        backgroundColor: "#4B5563",
-        color: "white",
-        borderRadius: "12px",
-        padding: "30px",
-        maxWidth: "400px",
-        margin: "0 auto",
-        boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
-      }}
-    >
-      {/* Temperature */}
-      <div style={{ fontSize: "20px", marginBottom: "10px" }}>Now</div>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          fontSize: "45px",
-          fontWeight: "bold",
-        }}
-      >
-        {Math.round(temperatureCelsius)}°C {renderTemperatureIcon()}
-      </div>
-      <div style={{ fontSize: "16px", marginTop: "8px" }}>
-        {weatherDescription}
-      </div>
+  style={{
+    backgroundColor: "#4B5563",
+    color: "white",
+    borderRadius: "12px",
+    padding: "20px",
+    margin: "20px auto",
+    width: "90%",
+    maxWidth: "500px", // bigger max width for desktop
+    boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+  }}
+>
+  {/* Temperature */}
+  <div style={{ fontSize: "18px", marginBottom: "8px" }}>Now</div>
+  <div
+    style={{
+      display: "flex",
+      alignItems: "center",
+      fontSize: "40px",
+      fontWeight: "bold",
+      flexWrap: "wrap",
+      gap: "10px",
+    }}
+  >
+    {Math.round(temperatureCelsius)}°C {renderTemperatureIcon()}
+  </div>
+  <div style={{ fontSize: "14px", marginTop: "6px" }}>{weatherDescription}</div>
 
-      {/* Date & Location */}
-      <div style={{ marginTop: "1rem" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <CalendarMonthIcon /> {currentDate}
-        </div>
-        <div
-          style={{
-            marginTop: "6px",
-            display: "flex",
-            alignItems: "center",
-            gap: "8px",
-          }}
-        >
-          <LocationOnIcon />
-          {cityName}, {countryName}
-        </div>
-      </div>
-
-      {/* Extra indicators */}
-      <div
-        style={{
-          marginTop: "20px",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "15px",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-          <DeviceThermostatIcon /> Feels like: {Math.round(feelsLike)}°C
-        </div>
-        <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-          <WaterDropIcon /> Humidity: {humidity}%
-        </div>
-        <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-          <CompressIcon /> Pressure: {pressure} hPa
-        </div>
-        <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-          <AirIcon /> Wind: {windSpeed} m/s
-        </div>
-      </div>
+  {/* Date & Location */}
+  <div style={{ marginTop: "12px", fontSize: "14px" }}>
+    <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+      <CalendarMonthIcon fontSize="small" /> {currentDate}
     </div>
+    <div style={{ display: "flex", alignItems: "center", gap: "6px", marginTop: "4px" }}>
+      <LocationOnIcon fontSize="small" /> {cityName}, {countryName}
+    </div>
+  </div>
+
+  {/* Extra Weather Info */}
+  <div
+    style={{
+      marginTop: "16px",
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+      gap: "12px",
+      fontSize: "14px",
+    }}
+  >
+    <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+      <DeviceThermostatIcon fontSize="small" /> Feels like: {Math.round(feelsLike)}°C
+    </div>
+    <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+      <WaterDropIcon fontSize="small" /> Humidity: {humidity}%
+    </div>
+    <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+      <CompressIcon fontSize="small" /> Pressure: {pressure} hPa
+    </div>
+    <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+      <AirIcon fontSize="small" /> Wind: {windSpeed} m/s
+    </div>
+  </div>
+</div>
+
   );
 };
 
